@@ -1,0 +1,127 @@
+body {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    max-width: 1080px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body.dark {
+    color: rgb(190, 190, 190);
+    background-color: #333;
+}
+
+.dark_button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border-style: none;
+    padding: 0;
+    background-color: transparent;
+    opacity: 0.5;
+}
+
+.dark_button:hover {
+    opacity: 1;
+}
+
+.dark_button img {
+    width: 36px;
+    height: 36px;
+}
+
+h1,
+h2 {
+    color: #193096;
+}
+.dark h1,
+.dark h2 {
+    color: #ffffff;
+}
+.section {
+    margin-bottom: 30px;
+}
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+.skills-list li {
+    margin-bottom: 10px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header .name_and_categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categories {
+    width: 100%;
+    display: flex;
+}
+
+.categories button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4c53af;
+    color: #fff;
+    border: 2px solid #4c53af;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        transform 0.3s;
+}
+
+.categories :not(:last-child) {
+   margin-right: 32px;
+}
+
+.categories button:hover {
+    background-color: #444a99;
+    color: #fff;
+}
+
+.categories button:active {
+    transform: scale(0.95);
+}
+
+header .profile_photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-radius: 50%;
+    max-width: 200px;
+    height: auto;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.profile_photo img {
+    overflow: hidden;
+    width: fit-content;
+}
