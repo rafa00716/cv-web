@@ -4,9 +4,8 @@ body {
     line-height: 1.6;
     color: #333;
     margin: 0 auto;
-    padding: 24px;
+    padding: 0 auto;
     display: flex;
-    max-width: 1080px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -29,6 +28,8 @@ body.dark {
     padding: 0;
     background-color: transparent;
     opacity: 0.5;
+    cursor: pointer;
+    z-index: 2;
 }
 
 .dark_button:hover {
@@ -60,26 +61,64 @@ h2 {
 }
 
 header {
-    width: 100%;
+    height: 132px;
+    width: 100%; 
+    padding-top: 4px;
+    background: linear-gradient(to right, #4c53af, #ebe5df,  #e7e1d8);
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: end;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dark header {
+    background: linear-gradient(to left, #4b0082, #000000);
 }
 
 header .name_and_categories {
+    width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.name_and_categories h1, .name_and_categories p {
+    text-align: start;
+    margin: 0px;
+    margin-left: 252px;
+}
+.name_and_categories p {
+    color: white;
+}
+
+header .profile_photo {
+    position: fixed;
+    top: 20px;
+    left: 16px;
+    display: flex;
     justify-content: center;
     align-items: center;
+    border-style: solid;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #333;
+    z-index: 2;
+}
+
+.profile_photo img {
+    overflow: hidden;
+    height: 200px;
 }
 
 .categories {
     width: 100%;
     display: flex;
+    justify-content: end;
 }
 
-.categories button {
-    display: inline-block;
+.categories .categories_item {
+    width: calc(50% - (200px / 2));
     padding: 15px 30px;
     font-size: 16px;
     font-weight: bold;
@@ -87,8 +126,6 @@ header .name_and_categories {
     text-decoration: none;
     background-color: #4c53af;
     color: #fff;
-    border: 2px solid #4c53af;
-    border-radius: 5px;
     cursor: pointer;
     transition:
         background-color 0.3s,
@@ -96,32 +133,15 @@ header .name_and_categories {
         transform 0.3s;
 }
 
-.categories :not(:last-child) {
-   margin-right: 32px;
-}
-
-.categories button:hover {
+.categories_item:hover {
     background-color: #444a99;
     color: #fff;
 }
 
-.categories button:active {
-    transform: scale(0.95);
+.categories_item:active {
+    transform: scale(0.99);
 }
 
-header .profile_photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-style: solid;
-    border-radius: 50%;
-    max-width: 200px;
-    height: auto;
-    overflow: hidden;
-    background-color: #333;
-}
-
-.profile_photo img {
-    overflow: hidden;
-    width: fit-content;
+.categories_item.active {
+    background-color: #222880;
 }

@@ -17,7 +17,24 @@ function toggleDarkMode() {
   }
 }
 
+function selectCategory(el){
 
+  // console.log(el)
+  // const categorySelected = el.getAttribute('category');
+  el.classList.add('active')
+  const categories = document.getElementsByClassName('categories_item');
+
+  
+  for (let index = 0; index < categories.length; index++) {
+    const category = categories.item(index);
+    
+    if (el != category) {
+      category.classList.remove('active')
+    }
+  }
+  
+
+}
 
 function getById(id) {
 return document.getElementById(id);
