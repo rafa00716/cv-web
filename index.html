@@ -13,11 +13,15 @@
     </button>
     <header>
         <div class="profile_photo">
-            <img src="assets/avatar_profile.png" alt="">
+            <img id="profile_image" class="visible" src="assets/avatar_profile.png" alt="">
         </div>
         <div class="name_and_categories">
-            <h1>Luis Mendez</h1>
-            <p>contacto@luismendez.cl</p>
+            <div class="container_flotante">
+                <div class="flotante">
+                    <h1>Luis Mendez</h1>
+                    <p>contacto@luismendez.cl</p>
+                </div>
+            </div>
             <div class="categories">
                 <div class="categories_item" category="dev" onclick="selectCategory(this)"> Desarrollador</div>
                 <div class="categories_item" category="ing" onclick="selectCategory(this)">Ingeniero Electrónico</div>

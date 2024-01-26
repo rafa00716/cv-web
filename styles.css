@@ -61,10 +61,10 @@ h2 {
 }
 
 header {
-    height: 132px;
-    width: 100%; 
+    height: 150px;
+    width: 100%;
     padding-top: 4px;
-    background: linear-gradient(to right, #4c53af, #ebe5df,  #e7e1d8);
+    background: linear-gradient(to right, #4c53af, #faf7f3, #f5f3ef);
     position: sticky;
     top: 0;
     display: flex;
@@ -83,13 +83,29 @@ header .name_and_categories {
     flex-direction: column;
 }
 
-.name_and_categories h1, .name_and_categories p {
+.container_flotante {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0px;
+}
+
+.flotante {
+    background-color: rgba(255, 255, 255, 0.432);
+    padding: 4px 40px 4px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark .flotante {
+    background-color: rgba(65, 64, 64, 0.432);
+    box-shadow: 0 0 10px rgba(253, 253, 253, 0.3);
+}
+
+.name_and_categories h1,
+.name_and_categories p {
     text-align: start;
     margin: 0px;
-    margin-left: 252px;
-}
-.name_and_categories p {
-    color: white;
 }
 
 header .profile_photo {
@@ -109,6 +125,12 @@ header .profile_photo {
 .profile_photo img {
     overflow: hidden;
     height: 200px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.profile_photo img.visible {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
 }
 
 .categories {
@@ -145,3 +167,20 @@ header .profile_photo {
 .categories_item.active {
     background-color: #222880;
 }
+
+
+@keyframes flash {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .flash-effect {
+    animation: flash 0.3s ease-in-out;
+  }
