@@ -98,8 +98,8 @@ header .name_and_categories {
 }
 
 .dark .flotante {
-    background-color: rgba(65, 64, 64, 0.432);
-    box-shadow: 0 0 10px rgba(253, 253, 253, 0.3);
+    background-color: #4c008238;
+    box-shadow: 0 0 10px #9901ffe3;
 }
 
 .name_and_categories h1,
@@ -128,6 +128,7 @@ header .profile_photo {
     opacity: 0;
     transition: opacity 0.2s;
 }
+
 .profile_photo img.visible {
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
