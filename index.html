@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Ing. Luis Mendez</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 
     <button class="dark_button" onclick="toggleDarkMode()">
         <img id="dark_button_image"  alt="dark_image" src="assets/outline_light_mode_white_24dp.png"></img>
     </button>
+
     <header>
         <div class="profile_photo">
             <img id="profile_image" class="visible" src="assets/avatar_profile.png" alt="">
@@ -23,11 +25,32 @@
                 </div>
             </div>
             <div class="categories">
-                <div class="categories_item" category="dev" onclick="selectCategory(this)"> Desarrollador</div>
+                <div class="categories_item active" category="dev" onclick="selectCategory(this)"> Desarrollador</div>
                 <div class="categories_item" category="ing" onclick="selectCategory(this)">Ingeniero Electrónico</div>
             </div>
         </div>
     </header>
+
+    <div class="menu_btn_container">
+        <span class="menu_btn material-symbols-outlined">
+            menu
+        </span>
+    </div>
+
+    <section class="sidebar">
+        <div class="side_item active">
+            <span class="side_icon material-symbols-outlined">
+                work
+                </span>
+            Experiencia Laboral
+        </div>
+        <div class="side_item">
+            <span class="side_icon material-symbols-outlined">
+                school
+            </span>
+            Educación
+        </div>
+    </section>
 
     <section class="developer">
         <h2>Desarrollador Web</h2>
@@ -65,6 +88,12 @@
         <p>LinkedIn: linkedin.com/in/tuusuario</p>
         <p>GitHub: github.com/tuusuario</p>
     </section>
+
+
+    <footer>
+    <p>© 2024 Luis Mendez</p>
+    </footer>
+
 <script src="scripts.js"></script>
 </body>
 </html>
