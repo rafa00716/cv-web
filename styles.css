@@ -1,3 +1,17 @@
+:root {
+    --header-height: 150px;
+    --categories-item-height: 150px;
+    --profile-photo-height: 200px;
+    --sidebar-width: 230px;
+    --sidebar-padding-x: 16px;
+    --icon-size: 24px;
+    --categories-height: 56px;
+    --profile-photo-top: calc( ( var(--header-height ) - ( var(--categories-height) / 2 ) ) - ( var(--profile-photo-height) / 2 ) );
+    --profile-photo-left: calc( (var(--sidebar-width) / 2) - ( var(--profile-photo-height) / 2 ) );
+    --sidebar-top: var(--header-height);
+    --menu-btn-container-size: 56px;
+  }
+
 body {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
         sans-serif;
@@ -61,7 +75,7 @@ h2 {
 }
 
 header {
-    height: 150px;
+    height: var(--header-height);
     width: 100%;
     padding-top: 4px;
     background: linear-gradient(to right, #4c53af, #faf7f3, #f5f3ef);
@@ -111,8 +125,8 @@ header .name_and_categories {
 
 header .profile_photo {
     position: absolute;
-    top: 20px;
-    left: 16px;
+    top: var(--profile-photo-top);
+    left: var(--profile-photo-left);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,6 +135,7 @@ header .profile_photo {
     border-radius: 50%;
     overflow: hidden;
     background-color: #051c68;
+    z-index: 1;
 }
 
 .dark .profile_photo {
@@ -130,7 +145,7 @@ header .profile_photo {
 
 .profile_photo img {
     overflow: hidden;
-    height: 200px;
+    height: var(--profile-photo-height);
     opacity: 0;
     transition: opacity 0.2s;
 }
@@ -144,10 +159,11 @@ header .profile_photo {
     width: 100%;
     display: flex;
     justify-content: end;
+    height: var(--categories-height);
 }
 
 .categories .categories_item {
-    width: calc(50% - (200px / 2));
+    width: calc(50% - (var(--sidebar-width) / 2 ));
     padding: 15px 30px;
     font-size: 16px;
     font-weight: bold;
@@ -189,12 +205,12 @@ header .profile_photo {
 
 .sidebar {
     height: 100%;
-    min-width: 250px;
+    width: var(--sidebar-width);
     position: fixed;
-    top: 150px;
+    top: var(--sidebar-top);
     left: 0;
+    padding-top: calc( (var(--profile-photo-height) - (var(--categories-height) / 2)) / 2 );
     background-color: #02082e;
-    padding-top: 80px;
   }
 
 .dark .sidebar {
@@ -202,8 +218,8 @@ header .profile_photo {
   }
 
  .menu_btn_container {
-    width: 48px;
-    height: 48px;
+    width: var(--menu-btn-container-size);
+    height: var(--menu-btn-container-size);
     background-color: #051c68;
     color: white;
     z-index: 10;
@@ -223,8 +239,8 @@ header .profile_photo {
   
   .sidebar .side_item {
     cursor: pointer;
-    padding: 15px;
-    font-size: 18px;
+    padding: 16px;
+    font-size: 16px;
     color: gray;
     display: flex;
     align-items: center;
@@ -240,18 +256,15 @@ header .profile_photo {
 
   .side_icon{
     margin-right: 12px;
+    width: 24px;
+    height: 24px;
   }
   
   .sidebar .side_item:hover {
     background-color: rgba(128, 128, 128, 0.164);
     color: white;
   }
-  
-  .content {
-    margin-left: 250px;
-    padding: 16px;
-  }
-  
+
   @media screen and (max-height: 450px) {
     .sidebar {
       padding-top: 15px;
