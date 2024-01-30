@@ -1,16 +1,16 @@
 :root {
     --header-height: 150px;
     --categories-item-height: 150px;
-    --profile-photo-height: 200px;
     --sidebar-width: 230px;
+    --profile-photo-height: 200px;
     --sidebar-padding-x: 16px;
     --icon-size: 24px;
     --categories-height: 56px;
     --profile-photo-top: calc( ( var(--header-height ) - ( var(--categories-height) / 2 ) ) - ( var(--profile-photo-height) / 2 ) );
     --profile-photo-left: calc( (var(--sidebar-width) / 2) - ( var(--profile-photo-height) / 2 ) );
     --sidebar-top: var(--header-height);
-    --menu-btn-container-size: 56px;
-  }
+    --menu-btn-container-size: 40px;
+}
 
 body {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
@@ -23,6 +23,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(235, 235, 235);
 }
 
 body.dark {
@@ -136,6 +137,7 @@ header .profile_photo {
     overflow: hidden;
     background-color: #051c68;
     z-index: 1;
+    transition: all 0.4s;
 }
 
 .dark .profile_photo {
@@ -184,18 +186,21 @@ header .profile_photo {
 
 .categories_item.active {
     background-color: #222880;
+    border-bottom-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-width: 1px;
 }
 
 .dark .categories_item {
-    background-color: #060d58;
+    background-color: #680475;
 }
 
 .dark .categories_item:hover {
-    background-color: #0a0c2b;
+    background-color: #5b0466;
 }
 
 .dark .categories_item.active {
-    background-color: #04051a;
+    background-color: #410449;
 }
 
 .categories_item:active {
@@ -211,13 +216,22 @@ header .profile_photo {
     left: 0;
     padding-top: calc( (var(--profile-photo-height) - (var(--categories-height) / 2)) / 2 );
     background-color: #02082e;
+    transition: all 0.2s;
   }
 
 .dark .sidebar {
     background-color: #18011f;
   }
 
- .menu_btn_container {
+ .dark .menu_btn_container {
+    background-color: #3c064d;
+  }
+
+  .sidebar.close {
+    --sidebar-width: calc( var(--icon-size) + (var(--sidebar-padding-x) * 2) );
+  }
+
+  .menu_btn_container {
     width: var(--menu-btn-container-size);
     height: var(--menu-btn-container-size);
     background-color: #051c68;
@@ -225,21 +239,36 @@ header .profile_photo {
     z-index: 10;
     cursor: pointer;
     position: fixed;
-    top: 180px;
-    left: 225px;
+    top: 50%;
+    left: calc( var(--sidebar-width) - var(--menu-btn-container-size)/2 );
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.2s;
+    opacity: 0.5;
   }
 
- .dark .menu_btn_container {
-    background-color: #3c064d;
+  .menu_btn_container:active {
+    transform: scale(0.98);
   }
+
+  .menu_btn_container:hover {
+    opacity: 1;
+  }
+
+  .sidebar.close .side_item label {
+    display: none;
+  }  
+
+  .sidebar .side_item label {
+    cursor: pointer;
+  }  
+
   
   .sidebar .side_item {
     cursor: pointer;
-    padding: 16px;
+    padding: var(--sidebar-padding-x);
     font-size: 16px;
     color: gray;
     display: flex;
@@ -248,7 +277,7 @@ header .profile_photo {
     border-color: rgba(172, 172, 172, 0.616);
     border-width: 0.2px;
   }
-  
+
   .sidebar .side_item.active {
     background-color: rgba(128, 128, 128, 0.164);
     color: white;
@@ -264,6 +293,41 @@ header .profile_photo {
     background-color: rgba(128, 128, 128, 0.164);
     color: white;
   }
+
+
+  .tooltip {
+    position: relative;
+  }
+
+  .tooltip::after {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: #030000c5;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    bottom: 90%;
+    left: 80%;
+  }
+
+  .tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sidebar .tooltip:hover::after{
+    visibility: hidden;
+  }
+  .sidebar.close .tooltip:hover::after{
+    visibility: visible;
+  }
+
 
   @media screen and (max-height: 450px) {
     .sidebar {
