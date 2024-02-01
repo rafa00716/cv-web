@@ -1,5 +1,4 @@
-let darkMode = true;
-document.body.classList.add("dark");
+let darkMode = false;
 
 const IMG_DARK_ASSET = "assets/outline_dark_mode_black_24dp.png";
 const IMG_LIGHT_ASSET = "assets/outline_light_mode_white_24dp.png";
@@ -54,12 +53,14 @@ function toggleSidebar() {
       menu_btn.textContent = "chevron_left";
       profile_photo.style.top = 'var(--profile-photo-top)';
       profile_photo.style.left = 'var(--profile-photo-left)';
-      
+      // --sidebar-width: calc(var(--icon-size) + (var(--sidebar-padding-x) * 2));
+      setRootStyleProperty("--sidebar-width", "var(--sidebar-width-open)")
       break;
       case "chevron_left":
         menu_btn.textContent = "chevron_right";
         profile_photo.style.top = 0;
         profile_photo.style.left = 0;
+        setRootStyleProperty("--sidebar-width", "var(--sidebar-width-close)")
       break;
     case "menu":
       menu_btn.textContent = "menu";
@@ -69,4 +70,10 @@ function toggleSidebar() {
       menu_btn.textContent = "menu";
       break;
   }
+}
+
+function setRootStyleProperty(property, value){
+  const rootStyle = document.documentElement.style;
+  rootStyle.setProperty(property, value);
+
 }

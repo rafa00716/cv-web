@@ -6,30 +6,51 @@
     <link rel="stylesheet" href="styles.css">
     <title>Ing. Luis Mendez</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
 </head>
 <body>
     <button class="dark_button" onclick="toggleDarkMode()">
-        <img id="dark_button_image"  alt="dark_image" src="assets/outline_light_mode_white_24dp.png"></img>
+        <img id="dark_button_image"  alt="dark_image" src="assets/outline_dark_mode_black_24dp.png"></img>
     </button>
 
     <header>
         <div class="profile_photo">
-            <img id="profile_image" class="visible" src="assets/avatar_profile.png" alt="">
+            <img id="profile_image" class="visible" src="assets/avatar_profile_reverencia.png" alt="">
         </div>
         <div class="name_and_categories">
             <div class="container_flotante">
                 <div class="flotante">
                     <h1>Luis Mendez</h1>
-                    <p>contacto@luismendez.cl</p>
+                    <div class="networks_social_container">
+                        <a target="_blank" href="https://www.linkedin.com/in/luis-rafael-mendez-navas-732827a5/" class="button_social_network"><i class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="https://wa.me/56977550599" class="button_social_network"><i class="fab fa-whatsapp"></i></a>
+                        <a target="_blank" href="https://github.com/rafa00716" class="button_social_network"><i class="fab fa-github"></i></a>
+                        <a target="_blank" href="mailto:rafa00716@gmail.com" class="button_social_network"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="categories">
-                <div class="categories_item active" category="dev" onclick="selectCategory(this)"> Desarrollador</div>
-                <div class="categories_item" category="ing" onclick="selectCategory(this)">Ingeniero Electrónico</div>
+                <div class="categories_item active" category="dev" onclick="selectCategory(this)"> 
+                    <span class="material-symbols-outlined category_icon">
+                        laptop_chromebook
+                    </span>
+                    <label>
+                        Desarrollador
+                    </label>
+                </div>
+                <div class="categories_item" category="ing" onclick="selectCategory(this)">
+                    <span class="material-symbols-outlined category_icon">
+                        engineering
+                    </span>
+                    <label>
+                        Ingeniero Electrónico
+                    </label>
+                </div>
             </div>
         </div>
     </header>
-
     
     <section class="sidebar">
         <div class="menu_btn_container" onclick="toggleSidebar()">
@@ -52,49 +73,62 @@
             </label>
         </div>
     </section>
+    <section class="sidebar_content">
+        <section class="developer">
+            <h2>Desarrollador Web</h2>
+            
+            <ul class="skills-list">
+                <li>Front-End: Angular 13, 14, 15, 16</li>
+                <li>Back-End: NestJs</li>
+                <li>Base de Datos: Typeorm & Postgres</li>
+                <li>Monorepo: Nx</li>
+                <li>Contenerización: Docker</li>
+                <li>Plataforma en la Nube: Google Cloud Platform (GCP)</li>
+                <li>Orquestación de Contenedores: Google Kubernetes Engine (GKE)</li>
+                <li>Arquitectura: Microfrontends y Microservices</li>
+                <li>Message Broker: Rabbitmq</li>
+                <li>Integraciones: Correo & Whatsapp</li>
+            </ul>
+        </section>
+    
+        <section class="electronic">
+            <h2>Ingeniero Electrónico</h2>
+            <!-- Puedes agregar aquí tus experiencias laborales -->
+        </section>
+    
+        <section class="work_experience">
+            <h2>Experiencia Laboral</h2>
+            <!-- Puedes agregar aquí tus experiencias laborales -->
+        </section>
+    
+        <section class="education">
+            <h2>Educación</h2>
+            <!-- Puedes agregar aquí tu historial educativo -->
+        </section>
+        <section class="contacto">
+            <form action="#" method="post">
+                <h2>Contacto</h2>
+                <label for="name">Nombre:<sup><small>*</small></sup></label>
+                <input placeholder="Indicame tu nombre" type="text" id="name" name="name" required>
+            
+                <label for="email">Correo electrónico:<sup><small>*</small></sup></label>
+                <input placeholder="Indicame un correo electrónicopara responderte" type="email" id="email" name="email" required>
+            
+                <label for="message">Mensaje:<sup><small>*</small></sup></label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <p><small>
+                    <strong>(*):</strong> Son campos obligatorios
+                </small></p>
+            
+                <button type="submit">Enviar</button>
+            </form>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212998.2997250683!2d-70.62983129999999!3d-33.47278795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1706825232219!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
 
-    <section class="developer">
-        <h2>Desarrollador Web</h2>
-        <ul class="skills-list">
-            <li>Front-End: Angular 13, 14, 15, 16</li>
-            <li>Back-End: NestJs</li>
-            <li>Base de Datos: Typeorm & Postgres</li>
-            <li>Monorepo: Nx</li>
-            <li>Contenerización: Docker</li>
-            <li>Plataforma en la Nube: Google Cloud Platform (GCP)</li>
-            <li>Orquestación de Contenedores: Google Kubernetes Engine (GKE)</li>
-            <li>Arquitectura: Microfrontends y Microservices</li>
-            <li>Message Broker: Rabbitmq</li>
-            <li>Integraciones: Correo & Whatsapp</li>
-        </ul>
     </section>
-
-    <section class="electronic">
-        <h2>Ingeniero Electrónico</h2>
-        <!-- Puedes agregar aquí tus experiencias laborales -->
-    </section>
-
-    <section class="work_experience">
-        <h2>Experiencia Laboral</h2>
-        <!-- Puedes agregar aquí tus experiencias laborales -->
-    </section>
-
-    <section class="education">
-        <h2>Educación</h2>
-        <!-- Puedes agregar aquí tu historial educativo -->
-    </section>
-    <section class="contacto">
-        <h2>Contacto</h2>
-        <p>Email: tuemail@example.com</p>
-        <p>LinkedIn: linkedin.com/in/tuusuario</p>
-        <p>GitHub: github.com/tuusuario</p>
-    </section>
-
-
     <footer>
-    <p>© 2024 Luis Mendez</p>
+        <p>© 2024 Luis Mendez</p>
     </footer>
-
 <script src="scripts.js"></script>
 </body>
 </html>
