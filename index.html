@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="categories">
-                <div class="categories_item active" category="dev" onclick="selectCategory(this)"> 
+                <div class="category_item active" category="dev" onclick="selectCategory(this)"> 
                     <span class="material-symbols-outlined category_icon">
                         laptop_chromebook
                     </span>
@@ -40,7 +40,7 @@
                         Desarrollador
                     </label>
                 </div>
-                <div class="categories_item" category="ing" onclick="selectCategory(this)">
+                <div class="category_item" category="ing" onclick="selectCategory(this)">
                     <span class="material-symbols-outlined category_icon">
                         engineering
                     </span>
@@ -56,7 +56,7 @@
         <div class="menu_btn_container" onclick="toggleSidebar()">
             <span id="menu_btn" class="menu_btn material-symbols-outlined">chevron_left</span>
         </div>
-        <div class="side_item active">
+        <div class="side_item active" subcategory="work" onclick="selectSubCategory(this)">
             <span class="tooltip side_icon material-symbols-outlined"  data-tooltip="Experiencia laboral">
                 work
             </span>
@@ -64,7 +64,7 @@
                 Experiencia
             </label>
         </div>
-        <div class="side_item">
+        <div class="side_item" subcategory="education" onclick="selectSubCategory(this)">
             <span class="tooltip side_icon material-symbols-outlined"  data-tooltip="Educación">
                 school
             </span>
@@ -72,9 +72,17 @@
                 Educación
             </label>
         </div>
+        <div class="side_item" subcategory="contact" onclick="selectSubCategory(this)">
+            <span class="tooltip side_icon material-symbols-outlined"  data-tooltip="Educación">
+                support_agent
+            </span>
+            <label>
+                Contacto
+            </label>
+        </div>
     </section>
     <section class="sidebar_content">
-        <section class="developer">
+        <section class="category_content dev">
             <h2>Desarrollador Web</h2>
             
             <ul class="skills-list">
@@ -91,21 +99,17 @@
             </ul>
         </section>
     
-        <section class="electronic">
+        <section class="category_content ing">
             <h2>Ingeniero Electrónico</h2>
             <!-- Puedes agregar aquí tus experiencias laborales -->
         </section>
     
-        <section class="work_experience">
-            <h2>Experiencia Laboral</h2>
-            <!-- Puedes agregar aquí tus experiencias laborales -->
-        </section>
-    
-        <section class="education">
+        <section class="category_content education">
             <h2>Educación</h2>
             <!-- Puedes agregar aquí tu historial educativo -->
         </section>
-        <section class="contacto">
+
+        <section class="category_content contact">
             <form action="#" method="post">
                 <h2>Contacto</h2>
                 <label for="name">Nombre:<sup><small>*</small></sup></label>

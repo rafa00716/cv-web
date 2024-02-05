@@ -171,7 +171,7 @@ header .profile_photo {
   padding-left: calc( ( var(--profile-photo-left) / 2 ) + (var(--profile-photo-height) / 2));
 }
 
-.categories .categories_item {
+.categories .category_item {
   width: 50%;
   padding: 15px 30px;
   font-size: 16px;
@@ -189,31 +189,35 @@ header .profile_photo {
     color 0.3s,
     transform 0.3s;
 }
-.categories_item:hover {
+.category_item:hover {
   background-color: #444a99;
   color: #fff;
 }
 
-.categories_item.active {
+.category_item.active {
   background-color: #222880;
   border-bottom-style: solid;
   border-color: rgb(255, 255, 255);
   border-width: 1px;
 }
 
-.dark .categories_item {
+.dark .category_item {
   background-color: #680475;
 }
 
-.dark .categories_item:hover {
+.dark .category_item:hover {
   background-color: #5b0466;
 }
 
-.dark .categories_item.active {
+.dark .category_item.active {
   background-color: #410449;
 }
 
-.categories_item:active {
+.category_item:active {
+  transform: scale(0.98);
+}
+
+.side_item:active {
   transform: scale(0.99);
 }
 
@@ -425,6 +429,14 @@ form button {
 
 form button:hover {
   background-color: rgb(7, 48, 94);
+}
+
+.category_content {
+  display: none;
+}
+
+.category_content.active {
+  display: flex;
 }
 
 @keyframes slideAnimation {

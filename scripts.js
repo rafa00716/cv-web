@@ -25,19 +25,6 @@ function toggleDarkMode() {
   }, 200);
 }
 
-function selectCategory(el) {
-  el.classList.add("active");
-  const categories = document.getElementsByClassName("categories_item");
-
-  for (let index = 0; index < categories.length; index++) {
-    const category = categories.item(index);
-
-    if (el != category) {
-      category.classList.remove("active");
-    }
-  }
-}
-
 function getById(id) {
   return document.getElementById(id);
 }
@@ -75,5 +62,74 @@ function toggleSidebar() {
 function setRootStyleProperty(property, value){
   const rootStyle = document.documentElement.style;
   rootStyle.setProperty(property, value);
+
+}
+
+function selectSubCategory(el) {
+  console.log(el.attributes.subcategory.nodeValue)
+  el.classList.add("active");
+  const subcategories = document.getElementsByClassName("side_item");
+
+  for (let index = 0; index < subcategories.length; index++) {
+    const subcategory = subcategories.item(index);
+
+    if (el != subcategory) {
+      subcategory.classList.remove("active");
+    }
+  }
+
+  refreshContent()
+}
+
+
+function selectCategory(el) {
+  el.classList.add("active");
+  const categories = document.getElementsByClassName("category_item");
+
+  for (let index = 0; index < categories.length; index++) {
+    const category = categories.item(index);
+
+    if (el != category) {
+      category.classList.remove("active");
+    }
+  }
+
+  refreshContent()
+}
+
+function categorySelected() {
+  const el = document.querySelector('[category].active');
+  const value = el.attributes.category.nodeValue;
+  return value
+}
+
+function subcategorySelected() {
+  const el = document.querySelector('[subcategory].active');
+  const value = el.attributes.subcategory.nodeValue;
+  return value
+}
+
+function refreshContent(){
+  const subCategory = subcategorySelected();
+  const category = categorySelected();
+
+  let sectionToActive;
+  if (subCategory === 'work') {
+    sectionToActive = category;
+  } else {
+    sectionToActive = subCategory;
+  }
+  
+  const sectionSelected = document.querySelector(`section.${sectionToActive}`);
+
+  sectionSelected.classList.add('active');
+
+  const categories = document.getElementsByClassName("category_content");
+
+  for (const category of categories) {
+    if (sectionSelected != category) {
+      category.classList.remove("active");
+    }
+  }
 
 }
