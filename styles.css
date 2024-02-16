@@ -15,9 +15,68 @@
   --sidebar-top: var(--header-height);
   --menu-btn-container-size: 40px;
 }
+/* Estilo para todas las barras de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+}
 
+/* Estilo para el riel (track) de todas las barras de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #b8b8b88c; /* Color de fondo del riel */
+}
+
+/* Estilo para el pulgar (thumb) de todas las barras de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: #312020; /* Color del pulgar */
+  border-radius: 5px; /* Radio de borde del pulgar */
+}
+/* Montserrat */
 body {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Roboto */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Open Sans */
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Lato */
+.navbar {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Poppins */
+.button {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Nunito */
+.footer {
+  font-family: 'Nunito', sans-serif;
+  background-color: #333; /* Color de fondo */
+  color: #fff; /* Color del texto */
+  padding: 20px; /* Espaciado interno */
+}
+
+footer p {
+  margin: 0; /* Eliminar márgenes del párrafo */
+  text-align: center; /* Alineación del texto */
+}
+
+footer p a {
+  color: #fff; /* Color de los enlaces */
+  text-decoration: none; /* Eliminar subrayado de los enlaces */
+}
+
+footer p a:hover {
+  text-decoration: underline; /* Subrayar enlaces al pasar el cursor */
+}
+body {
   line-height: 1.6;
   color: #333;
   margin: 0 auto;
@@ -168,7 +227,7 @@ header .profile_photo {
   display: flex;
   justify-content: end;
   height: var(--categories-height);
-  padding-left: calc( ( var(--profile-photo-left) / 2 ) + (var(--profile-photo-height) / 2));
+  padding-left: calc((var(--profile-photo-left) / 2) + (var(--profile-photo-height) / 2));
 }
 
 .categories .category_item {
@@ -312,7 +371,7 @@ header .profile_photo {
   display: flex;
   flex-direction: column;
   margin-left: var(--sidebar-width);
-  padding-top: calc( var(--profile-photo-height) - var(--header-height) );
+  padding-top: calc(var(--profile-photo-height) - var(--header-height));
   padding-left: 32px;
   transition: all 0.5s;
 }
@@ -352,7 +411,7 @@ header .profile_photo {
   visibility: visible;
 }
 
-.networks_social_container{
+.networks_social_container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -364,14 +423,13 @@ header .profile_photo {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color:#1a087e;
+  color: #1a087e;
   margin-right: 12px;
   margin-left: 12px;
-
 }
 
 .dark .button_social_network {
-  color:#ffffff;
+  color: #ffffff;
 }
 
 .contacto {
@@ -380,7 +438,6 @@ header .profile_photo {
   justify-content: space-between;
   align-items: center;
 }
-
 
 form {
   /* margin: 0 auto; */
@@ -394,7 +451,8 @@ form label {
   margin-bottom: 8px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   border: none;
   outline: none;
   border-radius: 4px;
@@ -402,11 +460,19 @@ form input, form textarea {
   margin-bottom: 16px;
 }
 
-form input:focus, form textarea:focus {
-  box-shadow: rgba(5, 27, 223, 0.4) 0px 0px 0px 1px, rgba(25, 5, 206, 0.65) 0px 2px 2px -1px, rgba(14, 56, 192, 0.08) 0px 1px 0px inset;
+form input:focus,
+form textarea:focus {
+  box-shadow:
+    rgba(5, 27, 223, 0.4) 0px 0px 0px 1px,
+    rgba(25, 5, 206, 0.65) 0px 2px 2px -1px,
+    rgba(14, 56, 192, 0.08) 0px 1px 0px inset;
 }
-.dark form input:focus, .dark form textarea:focus {
-  box-shadow: rgba(179, 5, 223, 0.4) 0px 0px 0px 2px, rgba(173, 5, 206, 0.65) 0px 2px 2px -1px, rgba(142, 14, 192, 0.08) 0px 1px 0px inset;
+.dark form input:focus,
+.dark form textarea:focus {
+  box-shadow:
+    rgba(179, 5, 223, 0.4) 0px 0px 0px 2px,
+    rgba(173, 5, 206, 0.65) 0px 2px 2px -1px,
+    rgba(142, 14, 192, 0.08) 0px 1px 0px inset;
 }
 
 form button {
@@ -433,10 +499,95 @@ form button:hover {
 
 .category_content {
   display: none;
+  flex-direction: column;
+  align-items: center;
 }
 
 .category_content.active {
   display: flex;
+}
+
+.work_experience_container {
+  padding: 8px;
+  width: 80%;
+}
+.job {
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #c2baba34;
+}
+
+.job_title_company_duration {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.job_title {
+  font-size: 24px !important;
+  color: #02082e;
+  width: 50%;
+}
+
+.dark .job_title {
+  color: #e4e3e3;
+}
+
+.job_company_duration {
+  width: 50%;
+}
+.job_company {
+  font-weight: 700;
+}
+.job_duration {
+  border-radius: 15px;
+  background-color: rgba(212, 177, 59, 0.418);
+  font-size: small;
+}
+
+.job_description_title {
+  border-radius: 8px;
+  background-color: #02082e;
+  padding: 4px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  font-size: small;
+}
+
+.dark .job_description_title {
+  background-color: #18011f;
+}
+
+.job_description_title:active {
+  transform: scale(0.999);
+}
+
+.job_description_content {
+  background-color: transparent;
+  margin: 4px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: #ecf7f8e5;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  padding: 0px;
+  max-height: 0;
+  overflow: auto;
+  transition: max-height 0.5s ease;
+}
+
+.job_description_title.opened +.job_description_content {
+  opacity: 1;
+  visibility: visible;
+  padding: 16px;
+  max-height: 300px; /* O cualquier otro valor que acomode tu contenido */
 }
 
 @keyframes slideAnimation {

@@ -5,6 +5,8 @@ const IMG_LIGHT_ASSET = "assets/outline_light_mode_white_24dp.png";
 const IMG_DARK_PROFILE = "assets/avatar_profile_reverencia.png";
 const IMG_LIGHT_PROFILE = "assets/avatar_profile.png";
 
+refreshContent();
+
 function toggleDarkMode() {
   darkMode = !darkMode;
   const imgDarkButton = getById("dark_button_image");
@@ -132,4 +134,10 @@ function refreshContent(){
     }
   }
 
+}
+
+function toggleJobDescription(el) {
+  
+  el.classList.toggle('opened')
+  
 }
