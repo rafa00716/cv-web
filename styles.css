@@ -17,6 +17,7 @@
 }
 /* Estilo para todas las barras de desplazamiento */
 ::-webkit-scrollbar {
+  height: 10px; /* Ancho de la barra de desplazamiento */
   width: 10px; /* Ancho de la barra de desplazamiento */
 }
 
@@ -28,11 +29,21 @@
 /* Estilo para el pulgar (thumb) de todas las barras de desplazamiento */
 ::-webkit-scrollbar-thumb {
   background: #312020; /* Color del pulgar */
-  border-radius: 5px; /* Radio de borde del pulgar */
+  border-radius: 15px; /* Radio de borde del pulgar */
 }
 /* Montserrat */
 body {
+  display: none;
+  opacity: 0;
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body.show {
+  display: flex;
+  opacity: 1;
 }
 
 /* Roboto */
@@ -56,11 +67,17 @@ p {
 }
 
 /* Nunito */
-.footer {
+footer {
+  position: fixed;
+  bottom:0;
+  width:  calc(100% - var(--sidebar-width));
+  margin-left: var(--sidebar-width);
+  transition: all 0.2s;
   font-family: 'Nunito', sans-serif;
   background-color: #333; /* Color de fondo */
   color: #fff; /* Color del texto */
   padding: 20px; /* Espaciado interno */
+  z-index: -1;
 }
 
 footer p {
@@ -112,8 +129,8 @@ body.dark {
 }
 
 .dark_button img {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
 }
 
 h1,
@@ -568,18 +585,20 @@ form button:hover {
 }
 
 .job_description_content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   background-color: transparent;
   margin: 4px;
   border-radius: 4px;
   border-style: solid;
   border-width: 0.1px;
   border-color: #ecf7f8e5;
-  flex-direction: column;
   opacity: 0;
   visibility: hidden;
   padding: 0px;
   max-height: 0;
-  overflow: auto;
+  overflow-y: auto;
   transition: max-height 0.5s ease;
 }
 
@@ -588,6 +607,37 @@ form button:hover {
   visibility: visible;
   padding: 16px;
   max-height: 300px; /* O cualquier otro valor que acomode tu contenido */
+}
+
+.job_item {
+  min-width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: rgb(241, 241, 241);
+  box-shadow: rgba(88, 88, 88, 0.24) 0px 3px 8px;
+}
+
+.dark .job_item {
+  background-color: rgb(46, 46, 46);
+  box-shadow: rgba(201, 201, 201, 0.24) 0px 3px 8px;
+}
+
+.job_item .label{
+  margin-right: 16px;
+  text-align: left;
+}
+
+.job_item .icon img{
+  width: 48px;
+}
+
+.iframe_mapa{
+  z-index: -1;
+  margin-bottom: 85px;
 }
 
 @keyframes slideAnimation {

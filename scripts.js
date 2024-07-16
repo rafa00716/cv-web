@@ -1,29 +1,53 @@
-let darkMode = false;
 
-const IMG_DARK_ASSET = "assets/outline_dark_mode_black_24dp.png";
-const IMG_LIGHT_ASSET = "assets/outline_light_mode_white_24dp.png";
-const IMG_DARK_PROFILE = "assets/avatar_profile_reverencia.png";
-const IMG_LIGHT_PROFILE = "assets/avatar_profile.png";
+const IMG_DARK_ASSET = "assets/images/outline_dark_mode_black_24dp.png";
+const IMG_LIGHT_ASSET = "assets/images/outline_light_mode_white_24dp.png";
+const IMG_DARK_PROFILE = "assets/images/avatar_profile_reverencia.png";
+const IMG_LIGHT_PROFILE = "assets/images/avatar_profile.png";
 
-refreshContent();
+let darkMode = getDarkMode();
 
-function toggleDarkMode() {
-  darkMode = !darkMode;
-  const imgDarkButton = getById("dark_button_image");
-  const imgProfile = getById("profile_image");
-  imgProfile.classList.remove("visible");
+init();
 
+function init(){
+  setDarkMode(darkMode);
+  refreshContent();
+
+  const body = document.body;
   setTimeout(() => {
-    if (darkMode) {
+    body.classList.add("show");
+  }, 200);
+}
+
+function getDarkMode(){
+  const theme = localStorage.getItem('theme');
+  return (theme && theme === 'dark');
+}
+
+
+function setDarkMode(dark) {
+    const imgDarkButton = getById("dark_button_image");
+    const imgProfile = getById("profile_image");
+    imgProfile.classList.remove("visible");
+
+    if (dark) {
+      localStorage.setItem('theme','dark');
       document.body.classList.add("dark");
       imgDarkButton.setAttribute("src", IMG_LIGHT_ASSET);
       imgProfile.setAttribute("src", IMG_LIGHT_PROFILE);
     } else {
+      localStorage.setItem('theme','light');
       document.body.classList.remove("dark");
       imgDarkButton.setAttribute("src", IMG_DARK_ASSET);
       imgProfile.setAttribute("src", IMG_DARK_PROFILE);
     }
+
     imgProfile.classList.add("visible");
+}
+
+function toggleDarkMode() {
+  darkMode = !darkMode;
+  setTimeout(() => {
+    setDarkMode(darkMode)
   }, 200);
 }
 

@@ -15,12 +15,12 @@
 
 <body>
     <button class="dark_button" onclick="toggleDarkMode()">
-        <img id="dark_button_image" alt="dark_image" src="assets/outline_dark_mode_black_24dp.png"></img>
+        <img id="dark_button_image" alt="dark_image" src=""></img>
     </button>
 
     <header>
         <div class="profile_photo">
-            <img id="profile_image" class="visible" src="assets/avatar_profile_reverencia.png" alt="">
+            <img id="profile_image" src="" alt="">
         </div>
         <div class="name_and_categories">
             <div class="container_flotante">
@@ -106,41 +106,115 @@
                             Ver más información....
                         </div>
                         <div class="job_description_content">
-                            <div>
-                                Desarrollador Full Stack con las siguientes tecnologías:
+                            <div class="job_item">
+                                <div class="label">Front-End Angular</div>
+                                <div class="icon">
+                                    <img src="assets/images/angular_logo.png" alt="">
+                                </div>
                             </div>
-                            <div>
-                                Front-End Angular & Back-End NestJs.
+                            <div class="job_item">
+                                <div class="label">
+                                    Back-End NestJs
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/nestjs_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Microfrontends & Microservices.
+                            <div class="job_item">
+                                <div class="label">
+                                    Typeorm
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/typeorm_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Typeorm & Postgres BD.
+                            <div class="job_item">
+                                <div class="label">
+                                    Postgres DB
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/database_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Nx Monorepo.
+                            <div class="job_item">
+                                <div class="label">
+                                    Nx Monorepo (Microfrontends & Microservices)
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/nx_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                También se obtuvo experiencia en:
+                            <div class="job_item">
+                                <div class="label">
+                                    Jasmine (Test unitarios)
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/jasmine_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Test unitarios para Angular con jasmine & karma.
+                            <div class="job_item">
+                                <div class="label">
+                                    Karma (Test unitarios)
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/karma_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Broker Rabbitmq
+                            <div class="job_item">
+                                <div class="label">
+                                    Broker Rabbitmq
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/rabbitmq_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Socket.io
+                            <div class="job_item">
+                                <div class="label">
+                                    Socket.io
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/socketio_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Integraciones Correo & Whatsapp
+                            <div class="job_item">
+                                <div class="label">
+                                    Sendgrid API (Integración Correo)
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/twillio_sendgrid_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Docker para desarrollo.
+                            <div class="job_item">
+                                <div class="label">
+                                    Meta for developers (Integración WhatsApp)
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/meta_logo.png" alt="" srcset="">
+                                </div>
                             </div>
-                            <div>
-                                Google Cloud Platform (GCP) & Google kubernetes Engine (GKE) para producción
+                            <div class="job_item">
+                                <div class="label">
+                                    Docker para desarrollo.
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/docker_logo.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="job_item">
+                                <div class="label">
+                                    Google Cloud Platform (GCP)
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/gcp_logo.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="job_item">
+                                <div class="label">
+                                    Google kubernetes Engine (GKE) para producción
+                                </div>
+                                <div class="icon">
+                                    <img src="assets/images/gke_logo.png" alt="" srcset="">
+                                </div>
                             </div>
 
                         </div>
@@ -178,6 +252,7 @@
                 <button type="submit">Enviar</button>
             </form>
             <iframe
+                class="iframe_mapa"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212998.2997250683!2d-70.62983129999999!3d-33.47278795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1706825232219!5m2!1ses-419!2scl"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -185,7 +260,7 @@
 
     </section>
     <footer>
-        <p>© 2024 Luis Mendez</p>
+        <p>© 2024 Luis Mendez - Developer Engineer</p>
     </footer>
     <script src="scripts.js"></script>
 </body>
