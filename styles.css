@@ -31,7 +31,11 @@
   background: #312020; /* Color del pulgar */
   border-radius: 15px; /* Radio de borde del pulgar */
 }
-/* Montserrat */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
 body {
   display: none;
   opacity: 0;
@@ -46,53 +50,27 @@ body.show {
   opacity: 1;
 }
 
-/* Roboto */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
-}
 
-/* Open Sans */
-p {
-  font-family: 'Open Sans', sans-serif;
-}
-
-/* Lato */
-.navbar {
-  font-family: 'Lato', sans-serif;
-}
-
-/* Poppins */
-.button {
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Nunito */
-footer {
-  position: fixed;
-  bottom:0;
+.footer {
+  min-height: 200px;
   width:  calc(100% - var(--sidebar-width));
   margin-left: var(--sidebar-width);
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
   transition: all 0.2s;
-  font-family: 'Nunito', sans-serif;
-  background-color: #333; /* Color de fondo */
-  color: #fff; /* Color del texto */
-  padding: 20px; /* Espaciado interno */
   z-index: -1;
 }
+.dark .footer {
+  background-color: rgba(0, 0, 0, 0.24);
+}
 
-footer p {
-  margin: 0; /* Eliminar márgenes del párrafo */
+.footer p {
+  width: 50%;
   text-align: center; /* Alineación del texto */
 }
 
-footer p a {
-  color: #fff; /* Color de los enlaces */
-  text-decoration: none; /* Eliminar subrayado de los enlaces */
-}
-
-footer p a:hover {
-  text-decoration: underline; /* Subrayar enlaces al pasar el cursor */
-}
 body {
   line-height: 1.6;
   color: #333;
@@ -387,8 +365,9 @@ header .profile_photo {
 .sidebar_content {
   display: flex;
   flex-direction: column;
+  flex: 1;
   margin-left: var(--sidebar-width);
-  padding-top: calc(var(--profile-photo-height) - var(--header-height));
+  padding-top: var(--profile-photo-top);
   padding-left: 32px;
   transition: all 0.5s;
 }
@@ -526,14 +505,19 @@ form button:hover {
 
 .work_experience_container {
   padding: 8px;
-  width: 80%;
+  width: 90%;
 }
 .job {
   border-radius: 8px;
   padding: 16px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: #c2baba34;
+  margin-bottom: 16px;
 }
+.job:last-of-type {
+  margin-bottom: 48px;
+}
+
 
 .job_title_company_duration {
   display: flex;
@@ -635,9 +619,18 @@ form button:hover {
   width: 48px;
 }
 
-.iframe_mapa{
-  z-index: -1;
-  margin-bottom: 85px;
+.div_mapa{
+  width: 50%;
+  height: 90%;
+}
+
+.div_mapa iframe{
+  width: 99%;
+  height: 100%;
+}
+
+.footer_responsive {
+ display: none;   
 }
 
 @keyframes slideAnimation {
@@ -646,15 +639,6 @@ form button:hover {
   }
   100% {
     transform: translateX(-100%);
-  }
-}
-
-@media screen and (max-height: 450px) {
-  .sidebar {
-    padding-top: 15px;
-  }
-  .sidebar .side_item {
-    font-size: 14px;
   }
 }
 
@@ -672,4 +656,110 @@ form button:hover {
 
 .flash-effect {
   animation: flash 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 720px) {
+
+  .dark_button{
+    top:var(--categories-height);
+    right: 4px;
+    background-color: #babbbd;
+    box-shadow: rgba(88, 88, 88, 0.24) 0px 3px 8px;
+    padding: 8px;
+  }
+  
+  .dark .dark_button{
+    background-color: #18011f;
+  }
+  
+  header {
+    height:var(--categories-height);
+    position: fixed;
+    top: 0;
+  }
+  
+  header .profile_photo {
+    display: none;
+  }
+
+  .categories{
+    padding-left: 0px;
+  }
+  .footer, .container_flotante, .profile_photo {
+    display: none;   
+  }
+  
+  .sidebar {
+    top: var(--categories-height);
+    padding-top: 0px;
+  }  
+
+  .sidebar.close {
+    width: 0px;
+  }  
+
+  .sidebar.close .side_item {
+    display: none;
+  }  
+
+  .sidebar.close .menu_btn_container {
+    left: calc((-1) * var(--menu-btn-container-size) / 3);
+  }  
+
+   .menu_btn_container{
+    top: var(--categories-height);
+   }
+
+  .sidebar_content {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .job_title_company_duration{
+    flex-direction: column;
+  }
+
+  .job_title_company_duration > *{
+    width: 100%;
+  }
+
+  .job_item{
+    width: 100%;
+  }
+
+  .footer_responsive {
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    color: #02082e;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(88, 88, 88, 0.24) 0px 3px 8px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .dark .footer_responsive {
+    color: white;
+    background-color: #02082e;
+  }
+
+  .footer_responsive p {
+    margin: 0px;
+    width: 100%;
+  }
+
+  .dark .footer_responsive .button_social_network {
+    color: white;
+  }
+
+  .footer_responsive .button_social_network {
+    color: black;
+  }
+
+  .footer_responsive .networks_social_container {
+   width: 100%;
+  }
 }
