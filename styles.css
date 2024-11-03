@@ -863,6 +863,16 @@ margin-bottom: 16px;
   font-size: 17px;
 }
 
+#snackbar.success{
+  background-color: rgb(8, 95, 8);
+}
+#snackbar.info{
+  background-color: rgb(23, 4, 88);
+}
+#snackbar.fail{
+  background-color: rgb(101, 5, 5);
+}
+
 /* Animación de entrada/salida */
 #snackbar.show {
   visibility: visible;

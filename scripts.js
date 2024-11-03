@@ -178,10 +178,15 @@ document.getElementById("form").addEventListener("submit", async function (event
   event.preventDefault();
   const { name, email, subject, message } = event.target;
 
-  const coords = await getCoords();
+  let coords;
+  try {
+    coords = await getCoords();
+  } catch (error) {
+    showSnackbar("No hay email disponibles por el momento, consulte directamente por los links de contacto","fail");
+  }
 
   if (!coords || coords.length === 0) {
-    showSnackbar("No hay email disponibles por el momento, consulte directamente por los links de contacto");
+    showSnackbar("No hay email disponibles por el momento, consulte directamente por los links de contacto","fail");
   }
 
   const objectMail = {
@@ -191,20 +196,24 @@ document.getElementById("form").addEventListener("submit", async function (event
     message: message.value,
     templateId: "contact_form"
   };
-
-  fetch(`${baseUrlMs}/luismendez.cl/email_api`, {
-    method: "POST",
-    mode: 'cors',
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": "2312k3b1ik2b31oj2b3o12ooasndc9",
-      "code-coord": coords[0].code,
-    },
-    body: JSON.stringify(objectMail),
-  })
-    .then((response) => response.json())
-    .then((data) =>  showSnackbar("Tu mensaje ha sido enviado correctamente"))
-    .catch((error) => console.error("Error:", error));
+  try {
+    fetch(`${baseUrlMs}/luismendez.cl/email_api`, {
+      method: "POST",
+      mode: 'cors',
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "2312k3b1ik2b31oj2b3o12ooasndc9",
+        "code-coord": coords[0].code,
+      },
+      body: JSON.stringify(objectMail),
+    })
+      .then(() => showSnackbar("Tu mensaje ha sido enviado correctamente", "success"))
+      .catch((error) => {
+        console.log({error})
+        showSnackbar("No pudimos enviar tu mensaje intente mas tarde","fail")});
+  } catch (error) {
+    showSnackbar("No pudimos enviar tu mensaje intente mas tarde","fail")
+  }
 });
 
 async function getCoords(){
@@ -218,19 +227,25 @@ async function getCoords(){
       },
     })
       .then((response) => resolve(response.json()))
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => {
+        showSnackbar("No hay email enviar tu mensaje intente mas tarde","fail")
+        reject({error})
+      });
   });
 }
 
-function showSnackbar(message) {
+function showSnackbar(message,type) {
   const snackbar = document.getElementById("snackbar");
 
   snackbar.innerText = message;
+  snackbar.classList.remove("success");
+  snackbar.classList.remove("info");
+  snackbar.classList.remove("fail");
 
+  snackbar.classList.add(type ?? 'success');
   snackbar.classList.add("show");
+
   setTimeout(function() { 
     snackbar.classList.remove("show"); 
   }, 3000);
 }
-
-
