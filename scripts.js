@@ -214,7 +214,7 @@ async function getCoords(){
       mode: 'cors',
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": "SECRET_KEY_FOR_TENANT1",
+        "x-api-key": "2312k3b1ik2b31oj2b3o12ooasndc9",
       },
     })
       .then((response) => resolve(response.json()))
