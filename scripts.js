@@ -197,7 +197,7 @@ document.getElementById("form").addEventListener("submit", async function (event
     mode: 'cors',
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": "SECRET_KEY_FOR_TENANT1",
+      "x-api-key": "2312k3b1ik2b31oj2b3o12ooasndc9",
       "code-coord": coords[0].code,
     },
     body: JSON.stringify(objectMail),
