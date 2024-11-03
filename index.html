@@ -14,6 +14,8 @@
 </head>
 
 <body>
+        <div id="snackbar">Info</div>
+
     <button class="dark_button" onclick="toggleDarkMode()">
         <img id="dark_button_image" alt="dark_image" src=""></img>
     </button>
@@ -386,17 +388,36 @@
 
         <section class="category_content education">
             <h2>Educación</h2>
-            <!-- Puedes agregar aquí tu historial educativo -->
+            <div class="education_item_container">
+                <div class="logoEducation">
+                    <img src="./assets/images/Nuevo_Escudo_de_la_UNEFA_(Desde_1999).svg" alt="" srcset="" width="80px">
+                </div>
+                <div class="education-content">
+                    <div class="education-title">
+                       Ingeniero Electrónico, mención control
+                    </div>
+                    <div class="education-institution">
+                    UNEFA (Universidad Nacional Experimental Politécnica de las Fuerza Armada Nacional). Venezuela.
+                        <div class="education-range-time">
+                            Septiembre 2009 - Agosto 2014
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="category_content contact">
-            <form action="#" method="post">
+            <form id="form">
                 <h2>Contacto</h2>
                 <label for="name">Nombre:<sup><small>*</small></sup></label>
                 <input placeholder="Indicame tu nombre" type="text" id="name" name="name" required>
 
                 <label for="email">Correo electrónico:<sup><small>*</small></sup></label>
-                <input placeholder="Indicame un correo electrónicopara responderte" type="email" id="email" name="email"
+                <input placeholder="Indicame un correo electrónico para responderte" type="email" id="email" name="email"
+                    required>
+
+                <label for="subject">Asunto:<sup><small>*</small></sup></label>
+                <input placeholder="Indicame un asunto que describa tu solicitud" type="text" id="subject" name="subject"
                     required>
 
                 <label for="message">Mensaje:<sup><small>*</small></sup></label>
@@ -405,7 +426,7 @@
                         <strong>(*):</strong> Son campos obligatorios
                     </small></p>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" >Enviar</button>
             </form>
         </section>
 

@@ -845,3 +845,94 @@ margin-bottom: 16px;
     width: 350px;
   }
 }
+
+
+/* Estilos básicos del snackbar */
+#snackbar {
+  visibility: hidden; /* Oculto por defecto */
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 16px;
+  position: fixed;
+  z-index: 165656;
+  right: 30px;
+  top: 30px;
+  font-size: 17px;
+}
+
+/* Animación de entrada/salida */
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
+
+.education_item_container {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.dark .education_item_container {
+  background-color: #2b0439;
+}
+
+.dark .education-title {
+  color: rgb(246, 232, 206);
+}
+
+.logoEducation {
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.education-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.education-institution {
+  font-size: 14px;
+  color: #666;
+}
+
+.education-range-time {
+  font-size: 13px;
+  color: #999;
+  margin-top: 4px;
+}
