@@ -647,6 +647,7 @@ margin-bottom: 16px;
   flex-wrap: wrap;
   flex-direction: row;
   background-color: transparent;
+  text-align: justify;
   margin: 4px;
   border-radius: 4px;
   border-style: solid;
